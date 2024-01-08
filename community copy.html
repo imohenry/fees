@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Engagement</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="card" style="width:400px">
+		  <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">
+		  <div class="card-body">
+			<h4 class="card-title">John Doe</h4>
+			<p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+			<a href="#" class="btn btn-primary">See Profile</a>
+		  </div>
+		</div>
+		</div>
+<div id="blog-posts-container"></div>
+
+<script>
+    $(document).ready(function () {
+        // Replace 'YOUR_API_KEY' with your API key
+		var apiKey = 'AIzaSyDLAmTMFILesJhTmXEmJGHKPRm6_ZgWUNo';
+
+		// Replace 'YOUR_BLOG_ID' with your Blogger blog ID
+		var blogId = '8810620751459339602';
+
+        // Blogger API endpoint
+        var apiEndpoint = 'https://www.googleapis.com/blogger/v3/blogs/' + blogId + '/posts?key=' + apiKey;
+
+        // Make an AJAX request to retrieve blog posts
+        $.ajax({
+            url: apiEndpoint,
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                // Handle the blog post data
+                console.log(data);
+
+                // Display blog posts in the HTML
+                var postsContainer = $('#blog-posts-container');
+                $.each(data.items, function (index, post) {
+                    var postTitle = post.title;
+                    var postContent = post.content;
+
+                    // Create HTML elements for each post
+                    var postElement = $('<div class="blog-post"></div>');
+                    var titleElement = $('<h2>' + postTitle + '</h2>');
+                    var contentElement = $('<div>' + postContent + '</div>');
+
+                    // Append elements to the container
+                    postElement.append(titleElement, contentElement);
+                    postsContainer.append(postElement);
+                });
+            },
+            error: function (error) {
+                // Handle errors
+                console.error('Error fetching blog posts:', error);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
