@@ -962,6 +962,7 @@ display: block;
     margin-left: -26px;
     vertical-align: middle;
     position: absolute;
+    top: 48%;
 }
 
 .top-minus-margin {
