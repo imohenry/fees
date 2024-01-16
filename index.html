@@ -61,15 +61,21 @@
 			<nav class="nav-menu w-nav-menu" role="navigation">
 				<a class="nav-link w-nav-link" href="#">Home</a>
 				<a class="nav-link-2 w-nav-link" href="#about">About</a>
-				<span class="drop-parent"><a class="nav-link-3 w-nav-link drop-parent" href="services.html">Services</a> <i class="fa-solid fa-chevron-down chevron_down"></i>
-					<ul class="dropdown-list">
-						<li>Skills Acquisition</li>
-						<li>Leadership Academy</li>
-						<li> <a href="mentors.html">Mentorship</a></li>
-						<li>Community Engagement</li>
-						<li>Acceleration and Incubation</li>
-					</ul>
-				</span>
+				<a class="nav-link-2 w-nav-link service-color" href="services.html">Services</a>
+                <div class="nav-link-3 w-nav-link drop-parent">
+                    <span onclick="dropFunction()">
+                        <label for="toggle"></label>
+                        <input type="checkbox" id="toggle">
+                        <i class="fa-solid fa-chevron-down chevron_down"></i>
+                    </span>
+                    <ul id="myDropdown" class="dropdown-list">
+                        <li class="top-minus-margin">Skills Acquisition</li>
+                        <li>Leadership Academy</li>
+                        <li> <a href="mentors.html">Mentorship</a></li>
+                        <li>Community Engagement</li>
+                        <li>Acceleration and Incubation</li>
+                    </ul>
+                </div>
 				<a class="nav-link-3 w-nav-link" href="cohort2.html">Cohorts</a>
 				<!-- <a class="nav-link-4 w-nav-link" href="#contact">Contact</a> -->
 			</nav>
